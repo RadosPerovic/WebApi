@@ -10,11 +10,11 @@ namespace WebApiTaskManager.Domain.Services
 {
     public interface ITaskService
     {
-        Task<Dictionary<string, string>> CreateTask(WebApiTaskManager.Domain.Models.Task task);
+        Task<Dictionary<string, string>> CreateTask(TaskModel request);
 
-        Task<Dictionary<string, string>> TaskToMember(TaskToMemberModel model);
+        Task<Dictionary<string, string>> TaskToMember(TaskToMemberModel request);
 
-        Task<Dictionary<string, string>> ChangeStatus(ChangeStatusModel model);
+        Task<Dictionary<string, string>> ChangeStatus(ChangeStatusModel request);
 
         Task<GetTasksModel> getTasks(int projectID);
     }

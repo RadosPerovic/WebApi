@@ -10,7 +10,6 @@ namespace WebApiTaskManager.HTTP.RequestModels
         public string Name { get; set; } = "";
         public string Description { get; set; } = "";
         public string TimeEstimation { get; set; } = "";
-        public string Status { get; set; } = "in-hold";
         public int ProjectID { get; set; } = 0;
 
     }

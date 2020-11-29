@@ -18,14 +18,23 @@ namespace WebApiTaskManager.Services
             _taskRepository = taskRepository;
         }
 
-        public async Task<Dictionary<string, string>> ChangeStatus(ChangeStatusModel model)
+        public async Task<Dictionary<string, string>> ChangeStatus(ChangeStatusModel requst)
         {
-            return await _taskRepository.ChangeStatus(model);
+            return await _taskRepository.ChangeStatus(requst);
         }
 
-        public async Task<Dictionary<string, string>> CreateTask(WebApiTaskManager.Domain.Models.Task task)
+        public async Task<Dictionary<string, string>> CreateTask(TaskModel request)
         {
-            return await _taskRepository.CreateTask(task);
+            Domain.Models.Task taskForDB = new Domain.Models.Task
+            {
+                Name = request.Name,
+                Description = request.Description,
+                TimeEstimation = request.TimeEstimation,
+                Status = "To Do",
+                ProjectID = request.ProjectID
+            };
+
+            return await _taskRepository.CreateTask(taskForDB);
         }
 
         public async Task<GetTasksModel> getTasks(int projectID)
@@ -33,9 +42,9 @@ namespace WebApiTaskManager.Services
             return await _taskRepository.getTasks(projectID);
         }
 
-        public async Task<Dictionary<string, string>> TaskToMember(TaskToMemberModel model)
+        public async Task<Dictionary<string, string>> TaskToMember(TaskToMemberModel requst)
         {
-            return await _taskRepository.TaskToMember(model);
+            return await _taskRepository.TaskToMember(requst);
         }
     }
 }

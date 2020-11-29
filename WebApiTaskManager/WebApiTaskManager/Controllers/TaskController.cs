@@ -26,25 +26,12 @@ namespace WebApiTaskManager.Controllers
 
         public async Task<IActionResult> createTask([FromBody]TaskModel request)
         {
-            if(request == null)
+            if(request == null || !ModelState.IsValid)
             {
-                return BadRequest("NULL");
-            }
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Invalid model object");
+                return BadRequest("Bad request");
             }
 
-            Domain.Models.Task taskForDB = new Domain.Models.Task
-            {
-                Name = request.Name,
-                Description = request.Description,
-                TimeEstimation = request.TimeEstimation,
-                Status = "To Do",
-                ProjectID = request.ProjectID
-            };
-
-            Dictionary<string, string> response = await _taskService.CreateTask(taskForDB);
+            Dictionary<string, string> response = await _taskService.CreateTask(request);
 
             string errorMessage = "";
 
@@ -52,21 +39,15 @@ namespace WebApiTaskManager.Controllers
                 return Ok(new { status = errorMessage });
 
             return Ok(new {Status = "Success", Task_ID = response["Inserted_ID"], Message = "Task is successfully created"});
-
-            }
+        }
 
         [HttpPost("addToMember/")]
 
         public async Task<IActionResult> taskToMember([FromBody]TaskToMemberModel request)
         {
-
-            if (request == null)
+            if (request == null || !ModelState.IsValid)
             {
-                return BadRequest("NULL");
-            }
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Invalid model object");
+                return BadRequest("Bad request");
             }
 
             Dictionary<string, string> response = await _taskService.TaskToMember(request);
@@ -77,26 +58,20 @@ namespace WebApiTaskManager.Controllers
                 return Ok(new { status = errorMessage });
 
             return Ok(new { Status = "Success", Task = response["Task"], Project = response["Project"], Member = response["Member"], Message = "Successfully added task to member"});
-
         }
 
         [HttpPost("changeStatus/")]
 
         public async Task<IActionResult> changeStatus([FromBody]ChangeStatusModel request)
         {
+            if (request == null || !ModelState.IsValid)
+            {
+                return BadRequest("Bad request");
+            }
 
             string[] statuses = { "To Do", "In Progress", "In Testing", "Done", "Closed" };
 
-            if (request == null)
-            {
-                return BadRequest("NULL");
-            }
-            if (!ModelState.IsValid)
-            {
-                return BadRequest("Invalid model object");
-            }
-
-            if(!statuses.Contains(request.Status))
+            if (!statuses.Contains(request.Status))
             {
                 return Ok(new { error = "Status string is not valid. You must entry some of this statuses : To Do, In Progress, In Testing, Done, Closed" });
             }
@@ -109,7 +84,6 @@ namespace WebApiTaskManager.Controllers
                 return Ok(new { status = errorMessage });
 
             return Ok(new { Status = "Success", Message = response["Message"]});
-
         }
 
         [HttpGet("get/{projectID}")]
@@ -118,7 +92,7 @@ namespace WebApiTaskManager.Controllers
         {
             if (projectID == null)
             {
-                return BadRequest("NULL");
+                return BadRequest("Bad request");
             }
 
             GetTasksModel response = await _taskService.getTasks(projectID);
@@ -127,7 +101,6 @@ namespace WebApiTaskManager.Controllers
             {
                 return Ok( new { errorMessage = "This project don't have tasks!" });
             }
-
 
             return Ok(new { Status = "Success", NumberOfTasks = response.listOfTasks.Count , Project = response.ProjectName, Tasks = response.listOfTasks}) ;
         }

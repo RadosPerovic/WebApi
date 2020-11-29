@@ -18,7 +18,7 @@ namespace WebApiTaskManager.Data.Repositories
 
         }
 
-        public async Task<Dictionary<string, string>> ChangeStatus(ChangeStatusModel model)
+        public async Task<Dictionary<string, string>> ChangeStatus(ChangeStatusModel request)
         {
             
 
@@ -27,7 +27,7 @@ namespace WebApiTaskManager.Data.Repositories
             string first = "";
             string second = "";
 
-            Domain.Models.Task task = await _dataBaseContext.Tasks.Where(t => t.ID == model.TaskID).FirstOrDefaultAsync();
+            Domain.Models.Task task = await _dataBaseContext.Tasks.Where(t => t.ID == request.TaskID).FirstOrDefaultAsync();
 
             string oldStatus = task.Status;
 
@@ -46,7 +46,7 @@ namespace WebApiTaskManager.Data.Repositories
 
             string[] legalStatus = {first, second};
 
-            if(!legalStatus.Contains(model.Status))
+            if(!legalStatus.Contains(request.Status))
             {
                 if(legalStatus[0] == legalStatus[1])
                 {
@@ -56,7 +56,7 @@ namespace WebApiTaskManager.Data.Repositories
                 return response;
             }
 
-            task.Status = model.Status;
+            task.Status = request.Status;
 
             try
             {
@@ -141,13 +141,13 @@ namespace WebApiTaskManager.Data.Repositories
 
         }
 
-        public async Task<Dictionary<string, string>> TaskToMember(TaskToMemberModel model)
+        public async Task<Dictionary<string, string>> TaskToMember(TaskToMemberModel request)
         {
             Dictionary<string, string> response = new Dictionary<string, string>();
 
-            Member member = await _dataBaseContext.Members.Where(m => m.ID == model.MemberID).FirstOrDefaultAsync();
+            Member member = await _dataBaseContext.Members.Where(m => m.ID == request.MemberID).FirstOrDefaultAsync();
 
-            Domain.Models.Task task = await _dataBaseContext.Tasks.Include(t => t.Project.Members).Where(t=>t.ID == model.TaskID).FirstOrDefaultAsync();
+            Domain.Models.Task task = await _dataBaseContext.Tasks.Include(t => t.Project.Members).Where(t=>t.ID == request.TaskID).FirstOrDefaultAsync();
 
             if (task == null)
             {
@@ -157,7 +157,7 @@ namespace WebApiTaskManager.Data.Repositories
             if (task.Project.Members.Contains(member))
             {
 
-                task.MemberID = model.MemberID;
+                task.MemberID = request.MemberID;
 
                 try
                 {

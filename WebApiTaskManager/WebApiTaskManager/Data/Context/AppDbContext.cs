@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using WebApiTaskManager.Domain.Models;
 
-namespace WebApiTaskManager.Domain.Persistance.Context
+namespace WebApiTaskManager.Data.Context
 {
     public class AppDbContext : DbContext
     {

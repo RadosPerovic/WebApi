@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiTaskManager.Domain.Models;
 using WebApiTaskManager.Domain.Services;
-using WebApiTaskManager.RequestModels;
-using WebApiTaskManager.ResponseModels;
+using WebApiTaskManager.HTTP.RequestModels;
+using WebApiTaskManager.HTTP.ResponseModels;
 
 namespace WebApiTaskManager.Controllers
 {

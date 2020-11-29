@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApiTaskManager.RequestModels
+namespace WebApiTaskManager.HTTP.RequestModels
 {
     public class ChangeStatusModel
     {

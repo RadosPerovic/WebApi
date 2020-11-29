@@ -8788,11 +8788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Visual\\WebApiTaskManager\\WebApiTaskManager\\WebApiTaskManager.csproj",
+      "projectUniqueName": "D:\\Home\\Desktop\\WebApi\\WebApiTaskManager\\WebApiTaskManager\\WebApiTaskManager.csproj",
       "projectName": "WebApiTaskManager",
-      "projectPath": "D:\\Visual\\WebApiTaskManager\\WebApiTaskManager\\WebApiTaskManager.csproj",
+      "projectPath": "D:\\Home\\Desktop\\WebApi\\WebApiTaskManager\\WebApiTaskManager\\WebApiTaskManager.csproj",
       "packagesPath": "C:\\Users\\rasas\\.nuget\\packages\\",
-      "outputPath": "D:\\Visual\\WebApiTaskManager\\WebApiTaskManager\\obj\\",
+      "outputPath": "D:\\Home\\Desktop\\WebApi\\WebApiTaskManager\\WebApiTaskManager\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PkhFBTupVTs8Jv55CvsxC/r7XZwQ9+HKYdn6bbjeHbV2nzxdom1UXVtKiBfH/uYGu1vkhwGBkW/yq5Z8bcssKw==",
+  "dgSpecHash": "aoLGN2Nufl5dH2aMYwi2P1Jo4lLF6NUefzVVFlnxSnG3iVfcojDX0BOKJHmE7QJ7f51iH5Ki9dI54W/gx7kHJA==",
   "success": true,
-  "projectFilePath": "D:\\Visual\\WebApiTaskManager\\WebApiTaskManager\\WebApiTaskManager.csproj",
+  "projectFilePath": "D:\\Home\\Desktop\\WebApi\\WebApiTaskManager\\WebApiTaskManager\\WebApiTaskManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rasas\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

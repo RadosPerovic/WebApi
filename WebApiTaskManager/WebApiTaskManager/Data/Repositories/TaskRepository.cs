@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApiTaskManager.Domain.Models;
-using WebApiTaskManager.Domain.Persistance.Context;
+using WebApiTaskManager.Data.Context;
 using WebApiTaskManager.Domain.Repositories;
-using WebApiTaskManager.RequestModels;
-using WebApiTaskManager.ResponseModels;
+using WebApiTaskManager.HTTP.RequestModels;
+using WebApiTaskManager.HTTP.ResponseModels;
 
-namespace WebApiTaskManager.Domain.Persistance.Repositories
+namespace WebApiTaskManager.Data.Repositories
 {
     public class TaskRepository : BaseRepository, ITaskRepository
     {
@@ -75,7 +75,7 @@ namespace WebApiTaskManager.Domain.Persistance.Repositories
 
         }
 
-        public async Task<Dictionary<string, string>> CreateTask(Models.Task task)
+        public async Task<Dictionary<string, string>> CreateTask(Domain.Models.Task task)
         {
             Dictionary<string, string> response = new Dictionary<string, string>();
             Project project = await _dataBaseContext.Projects.Where(p => p.ID == task.ProjectID).FirstOrDefaultAsync();

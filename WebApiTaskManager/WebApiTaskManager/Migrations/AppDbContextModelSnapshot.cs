@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApiTaskManager.Domain.Persistance.Context;
+using WebApiTaskManager.Data.Context;
 
 namespace WebApiTaskManager.Migrations
 {

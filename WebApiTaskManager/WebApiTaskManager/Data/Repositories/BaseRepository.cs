@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApiTaskManager.Domain.Persistance.Context;
+using WebApiTaskManager.Data.Context;
 
-namespace WebApiTaskManager.Domain.Persistance.Repositories
+namespace WebApiTaskManager.Data.Repositories
 {
     public class BaseRepository
     {

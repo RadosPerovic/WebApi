@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApiTaskManager.Domain.Repositories;
 using WebApiTaskManager.Domain.Services;
-using WebApiTaskManager.RequestModels;
-using WebApiTaskManager.ResponseModels;
+using WebApiTaskManager.HTTP.RequestModels;
+using WebApiTaskManager.HTTP.ResponseModels;
 
 namespace WebApiTaskManager.Services
 {
